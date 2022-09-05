@@ -18,6 +18,7 @@ public class PostEventListener extends EventChange {
             post.postedAt = event.postedAt();
             post.author = event.author();
             post.title = event.title();
+            post.content = event.content();
             post.comments = new ArrayList<>();
         });
 
