@@ -8,8 +8,8 @@ import java.util.function.Consumer;
 public abstract class DomainUpdater {
     protected Set<Consumer<DomainEvent>> listeners;
 
-    protected void listen(Consumer<DomainEvent> listener) {
-        this.listeners.add(listener);
+    protected void listen(Consumer<? extends DomainEvent> listener) {
+        this.listeners.add((Consumer<DomainEvent>) listener);
     }
 
     protected void applyEvent(DomainEvent event) {
