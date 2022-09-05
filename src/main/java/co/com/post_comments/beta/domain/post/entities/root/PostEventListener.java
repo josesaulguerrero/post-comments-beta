@@ -1,13 +1,13 @@
 package co.com.post_comments.beta.domain.post.entities.root;
 
-import co.com.post_comments.alpha.domain.post.entities.Comment;
-import co.com.post_comments.alpha.domain.post.events.CommentAdded;
-import co.com.post_comments.alpha.domain.post.events.CommentContentChanged;
-import co.com.post_comments.alpha.domain.post.events.PostCreated;
-import co.com.post_comments.alpha.domain.post.values.Author;
-import co.com.post_comments.alpha.domain.post.values.Content;
-import co.com.post_comments.alpha.domain.post.values.Date;
-import co.com.post_comments.alpha.domain.post.values.identities.CommentId;
+import co.com.post_comments.beta.domain.post.entities.Comment;
+import co.com.post_comments.beta.domain.post.events.CommentAdded;
+import co.com.post_comments.beta.domain.post.events.CommentContentChanged;
+import co.com.post_comments.beta.domain.post.events.PostCreated;
+import co.com.post_comments.beta.domain.post.values.Author;
+import co.com.post_comments.beta.domain.post.values.Content;
+import co.com.post_comments.beta.domain.post.values.Date;
+import co.com.post_comments.beta.domain.post.values.identities.CommentId;
 import co.com.sofka.domain.generic.EventChange;
 
 import java.util.ArrayList;
