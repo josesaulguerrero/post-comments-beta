@@ -12,7 +12,7 @@ public abstract class DomainUpdater {
         this.listeners.add((Consumer<DomainEvent>) listener);
     }
 
-    protected void applyEvent(DomainEvent event) {
+    public void applyEvent(DomainEvent event) {
         this.listeners.forEach(listener -> {
             try {
                 listener.accept(event);
