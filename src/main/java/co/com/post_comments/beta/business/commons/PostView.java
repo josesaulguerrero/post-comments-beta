@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @AllArgsConstructor
 @Setter
@@ -15,6 +16,7 @@ public class PostView {
     private String title;
     private String content;
     private LocalDateTime postedAt;
+    private Set<CommentView> comments;
 
     public String id() {
         return id;
@@ -34,5 +36,9 @@ public class PostView {
 
     public LocalDateTime postedAt() {
         return postedAt;
+    }
+
+    public Set<CommentView> comments() {
+        return comments;
     }
 }
