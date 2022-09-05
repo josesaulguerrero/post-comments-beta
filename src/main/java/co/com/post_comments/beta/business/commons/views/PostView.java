@@ -1,4 +1,4 @@
-package co.com.post_comments.beta.business.commons;
+package co.com.post_comments.beta.business.commons.views;
 
 import lombok.AllArgsConstructor;
 import lombok.Setter;

@@ -1,5 +1,7 @@
 package co.com.post_comments.beta.business.commons;
 
+import co.com.post_comments.beta.business.commons.views.CommentView;
+import co.com.post_comments.beta.business.commons.views.PostView;
 import co.com.post_comments.beta.business.gateways.ViewsRepository;
 import co.com.post_comments.beta.domain.post.events.CommentAdded;
 import co.com.post_comments.beta.domain.post.events.PostCreated;

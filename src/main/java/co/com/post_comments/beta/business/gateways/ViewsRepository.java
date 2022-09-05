@@ -1,7 +1,7 @@
 package co.com.post_comments.beta.business.gateways;
 
-import co.com.post_comments.beta.business.commons.CommentView;
-import co.com.post_comments.beta.business.commons.PostView;
+import co.com.post_comments.beta.business.commons.views.CommentView;
+import co.com.post_comments.beta.business.commons.views.PostView;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
