@@ -15,6 +15,7 @@ public class ViewUpdater extends DomainUpdater {
     private final ViewsRepository viewsRepository;
 
     public ViewUpdater(ViewsRepository viewsRepository) {
+        super();
         this.viewsRepository = viewsRepository;
 
         super
