@@ -1,4 +1,4 @@
-package co.com.post_comments.alpha.application.commons.exception;
+package co.com.post_comments.beta.application.commons.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

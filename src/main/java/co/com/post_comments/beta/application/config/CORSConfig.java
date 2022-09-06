@@ -1,4 +1,4 @@
-package com.posada.santiago.betapostsandcomments.application.config;
+package co.com.post_comments.beta.application.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,11 +7,10 @@ import org.springframework.web.reactive.config.WebFluxConfigurer;
 import org.springframework.web.reactive.config.WebFluxConfigurerComposite;
 
 @Configuration
-public class AppConfig {
+public class CORSConfig {
     @Bean
-    public WebFluxConfigurer corsConfigure() {
+    public WebFluxConfigurer CORSSetUp() {
         return new WebFluxConfigurerComposite() {
-
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**").allowedOrigins("*")

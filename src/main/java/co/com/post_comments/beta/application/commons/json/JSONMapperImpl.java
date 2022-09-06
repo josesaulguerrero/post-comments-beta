@@ -1,7 +1,7 @@
-package co.com.post_comments.alpha.application.commons.json;
+package co.com.post_comments.beta.application.commons.json;
 
-import co.com.post_comments.alpha.application.commons.exception.JSONDeserializationException;
-import co.com.post_comments.alpha.application.commons.exception.JSONSerializationException;
+import co.com.post_comments.beta.application.commons.exception.JSONDeserializationException;
+import co.com.post_comments.beta.application.commons.exception.JSONSerializationException;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.PropertyAccessor;

@@ -1,24 +1,21 @@
-package com.posada.santiago.betapostsandcomments.APPRENTICESbetapostscomments.application.handlers;
+package co.com.post_comments.beta.application.handlers;
 
 
-
-import com.google.gson.Gson;
-import com.posada.santiago.betapostsandcomments.APPRENTICESbetapostscomments.business.usecases.UpdateViewUseCase;
+import co.com.post_comments.beta.application.commons.json.JSONMapper;
+import co.com.post_comments.beta.business.usecases.UpdateViewUseCase;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.function.Consumer;
 
 @Service
+@AllArgsConstructor
 public class QueueHandler implements Consumer<String> {
-    private final Gson gson = new Gson();
+    private final JSONMapper jsonMapper;
     private final UpdateViewUseCase useCase;
-
-    public QueueHandler(UpdateViewUseCase useCase) {
-        this.useCase = useCase;
-    }
 
     @Override
     public void accept(String received) {
-        //Finish the implementation of this Method
+        // Parse json
     }
 }

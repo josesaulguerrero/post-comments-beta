@@ -1,54 +1,40 @@
-package com.posada.santiago.betapostsandcomments.application.adapters.repository;
+package co.com.post_comments.beta.application.adapters.repository;
 
-
-import com.google.gson.Gson;
-import com.posada.santiago.betapostsandcomments.business.gateways.DomainViewRepository;
-import com.posada.santiago.betapostsandcomments.business.gateways.model.CommentViewModel;
-import com.posada.santiago.betapostsandcomments.business.gateways.model.PostViewModel;
+import co.com.post_comments.beta.application.commons.json.JSONMapper;
+import co.com.post_comments.beta.business.commons.views.CommentView;
+import co.com.post_comments.beta.business.commons.views.PostView;
+import co.com.post_comments.beta.business.gateways.ViewsRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.Update;
-import org.springframework.data.mongodb.core.query.UpdateDefinition;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
-
 @Repository
-public class MongoViewRepository implements DomainViewRepository {
+@AllArgsConstructor
+public class MongoViewRepository implements ViewsRepository {
     private final ReactiveMongoTemplate template;
 
-    private final Gson gson = new Gson();
+    private final JSONMapper jsonMapper;
 
-    public MongoViewRepository(ReactiveMongoTemplate template) {
-        this.template = template;
-    }
 
     @Override
-    public Mono<PostViewModel> findByAggregateId(String aggregateId) {
-        /**Make the implementation, using the template, to find a post by its aggregateId*/
+    public Flux<PostView> findAllPosts() {
         return null;
     }
 
     @Override
-    public Flux<PostViewModel> findAllPosts() {
-        /**make the implementation, using the template, of the method find all posts that are stored in the db*/
+    public Mono<PostView> findByPostId(String postId) {
         return null;
     }
 
     @Override
-    public Mono<PostViewModel> saveNewPost(PostViewModel post) {
-        /** make the implementation, using the template, to save a post*/
+    public Mono<PostView> savePost(PostView post) {
         return null;
     }
 
     @Override
-    public Mono<PostViewModel> addCommentToPost(CommentViewModel comment) {
-        /** make the implementation, using the template, to find the post in the database that you want to add the comment to,
-         * then add the comment to the list of comments and using the Update class update the existing post
-         * with the new list of comments*/
+    public Mono<PostView> appendComment(String postId, CommentView commentView) {
         return null;
     }
 }
