@@ -36,6 +36,10 @@ public class MongoViewRepository implements ViewsRepository {
 
     @Override
     public Mono<PostView> appendComment(String postId, CommentView commentView) {
-        return null;
+        return this.mongoTemplate.findById(postId, PostView.class, "views")
+                .flatMap(post -> {
+                    post.addComment(commentView);
+                    return this.savePost(post);
+                });
     }
 }

@@ -18,6 +18,10 @@ public class PostView {
     private LocalDateTime postedAt;
     private Set<CommentView> comments;
 
+    public void addComment(CommentView commentView) {
+        this.comments.add(commentView);
+    }
+
     public String id() {
         return id;
     }
