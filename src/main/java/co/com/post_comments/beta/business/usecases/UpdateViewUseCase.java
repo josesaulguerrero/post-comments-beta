@@ -14,6 +14,6 @@ public class UpdateViewUseCase {
 
     public void accept(DomainEvent event) {
         this.viewUpdater.applyEvent(event);
-        this.eventBus.publishDomainEvent(event);
+        //this.eventBus.publishDomainEvent(event);
     }
 }

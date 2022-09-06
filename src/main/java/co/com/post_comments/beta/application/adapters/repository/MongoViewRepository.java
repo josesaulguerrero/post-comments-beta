@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
 @Repository
 @AllArgsConstructor
 public class MongoViewRepository implements ViewsRepository {
-    private final ReactiveMongoTemplate template;
+    private final ReactiveMongoTemplate mongoTemplate;
 
     private final JSONMapper jsonMapper;
 
@@ -30,7 +30,8 @@ public class MongoViewRepository implements ViewsRepository {
 
     @Override
     public Mono<PostView> savePost(PostView post) {
-        return null;
+        return Mono.just(post)
+                .flatMap(p -> this.mongoTemplate.save(p, "views"));
     }
 
     @Override
