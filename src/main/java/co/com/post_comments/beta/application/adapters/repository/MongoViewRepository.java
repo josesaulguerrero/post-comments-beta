@@ -6,6 +6,8 @@ import co.com.post_comments.beta.business.commons.views.PostView;
 import co.com.post_comments.beta.business.gateways.ViewsRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -28,8 +30,7 @@ public class MongoViewRepository implements ViewsRepository {
 
     @Override
     public Mono<PostView> findByPostId(String postId) {
-        return this.mongoTemplate
-                .findById(postId, PostView.class, collection);
+        return this.mongoTemplate.findById(postId, PostView.class, collection);
     }
 
     @Override

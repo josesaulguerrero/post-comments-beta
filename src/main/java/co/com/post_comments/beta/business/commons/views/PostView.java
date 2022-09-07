@@ -1,14 +1,14 @@
 package co.com.post_comments.beta.business.commons.views;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 import java.util.Set;
 
 @Setter
+@Getter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class PostView {
@@ -22,29 +22,5 @@ public class PostView {
 
     public void addComment(CommentView commentView) {
         this.comments.add(commentView);
-    }
-
-    public String id() {
-        return id;
-    }
-
-    public String author() {
-        return author;
-    }
-
-    public String title() {
-        return title;
-    }
-
-    public String content() {
-        return content;
-    }
-
-    public LocalDateTime postedAt() {
-        return postedAt;
-    }
-
-    public Set<CommentView> comments() {
-        return comments;
     }
 }
