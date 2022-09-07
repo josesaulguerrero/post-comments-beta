@@ -14,13 +14,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @AllArgsConstructor
 public class RabbitMQConfig {
-    public static final String EXCHANGE = "posts-comments-alpha";
-
-    public static final String MAIN_QUEUE = "events.main";
-
-    // public static final String MAIN_ROUTING_KEY = "routingKey.main";
-
-    // -------------
+    public static final String BETA_EXCHANGE = "posts-comments-beta";
+    public static final String ALPHA_EVENTS_QUEUE = "events.main";
     public static final String PROXY_QUEUE_POST_CREATED = "events.proxy.post.created";
     public static final String PROXY_QUEUE_COMMENT_ADDED = "events.proxy.comment.added";
     public static final String PROXY_ROUTING_KEY_POST_CREATED = "routingKey.proxy.post.created";
@@ -40,7 +35,7 @@ public class RabbitMQConfig {
 
     @Bean
     public TopicExchange getTopicExchange() {
-        return new TopicExchange(EXCHANGE);
+        return new TopicExchange(BETA_EXCHANGE);
     }
 
     @Bean
@@ -59,7 +54,7 @@ public class RabbitMQConfig {
                 .with(PROXY_ROUTING_KEY_COMMENT_ADDED);
     }
 
-    @RabbitListener(queues = MAIN_QUEUE)
+    @RabbitListener(queues = ALPHA_EVENTS_QUEUE)
     public void listenToGeneralQueue(String received){
         this.handler.accept(received);
     }
