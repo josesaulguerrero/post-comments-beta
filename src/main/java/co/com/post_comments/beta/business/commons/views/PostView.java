@@ -1,14 +1,16 @@
 package co.com.post_comments.beta.business.commons.views;
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 import java.util.Set;
 
-@AllArgsConstructor
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class PostView {
     @Id
     private String id;
