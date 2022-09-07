@@ -17,26 +17,30 @@ public class MongoViewRepository implements ViewsRepository {
 
     private final JSONMapper jsonMapper;
 
+    private static final String collection = "views";
+
 
     @Override
     public Flux<PostView> findAllPosts() {
-        return null;
+        return this.mongoTemplate
+                .findAll(PostView.class, collection);
     }
 
     @Override
     public Mono<PostView> findByPostId(String postId) {
-        return null;
+        return this.mongoTemplate
+                .findById(postId, PostView.class, collection);
     }
 
     @Override
     public Mono<PostView> savePost(PostView post) {
         return Mono.just(post)
-                .flatMap(p -> this.mongoTemplate.save(p, "views"));
+                .flatMap(p -> this.mongoTemplate.save(p, collection));
     }
 
     @Override
     public Mono<PostView> appendComment(String postId, CommentView commentView) {
-        return this.mongoTemplate.findById(postId, PostView.class, "views")
+        return this.mongoTemplate.findById(postId, PostView.class, collection)
                 .flatMap(post -> {
                     post.addComment(commentView);
                     return this.savePost(post);
