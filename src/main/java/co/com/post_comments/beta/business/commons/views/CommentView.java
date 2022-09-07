@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 public class CommentView {
     @Id
     private String id;
+    private String postId;
     private String author;
     private String content;
     private LocalDateTime postedAt;
@@ -21,6 +22,10 @@ public class CommentView {
 
     public String author() {
         return author;
+    }
+
+    public String postId() {
+        return postId;
     }
 
     public String content() {

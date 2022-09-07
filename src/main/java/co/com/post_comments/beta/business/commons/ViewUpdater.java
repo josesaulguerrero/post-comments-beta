@@ -41,6 +41,7 @@ public class ViewUpdater extends DomainUpdater {
                 .listen((CommentAdded event) -> {
                     CommentView comment = new CommentView(
                             event.commentId(),
+                            event.postId(),
                             event.author(),
                             event.content(),
                             LocalDateTime.parse(event.postedAt())
