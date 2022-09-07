@@ -33,6 +33,8 @@ public class ViewUpdater extends DomainUpdater {
                     );
                     this.viewsRepository.savePost(post)
                             .subscribe();
+                    this.eventBus
+                            .publishPostCreatedEvent(event);
                 });
 
         super
@@ -45,6 +47,7 @@ public class ViewUpdater extends DomainUpdater {
                     );
                     this.viewsRepository.appendComment(event.postId(), comment)
                             .subscribe();
+                    this.eventBus.publishCommentAddedEvent(event);
                 });
     }
 }
