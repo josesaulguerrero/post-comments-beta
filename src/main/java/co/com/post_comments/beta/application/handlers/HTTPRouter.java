@@ -4,7 +4,7 @@ package co.com.post_comments.beta.application.handlers;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class QueryHandler {
+public class HTTPRouter {
 
     //Create a route that allows you to make a Get Http request that brings you all the posts and also a post by its id
 }

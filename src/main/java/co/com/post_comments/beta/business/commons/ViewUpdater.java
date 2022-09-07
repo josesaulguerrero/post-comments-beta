@@ -2,6 +2,7 @@ package co.com.post_comments.beta.business.commons;
 
 import co.com.post_comments.beta.business.commons.views.CommentView;
 import co.com.post_comments.beta.business.commons.views.PostView;
+import co.com.post_comments.beta.business.gateways.EventBus;
 import co.com.post_comments.beta.business.gateways.ViewsRepository;
 import co.com.post_comments.beta.domain.post.events.CommentAdded;
 import co.com.post_comments.beta.domain.post.events.PostCreated;
@@ -13,10 +14,12 @@ import java.util.HashSet;
 @Service
 public class ViewUpdater extends DomainUpdater {
     private final ViewsRepository viewsRepository;
+    private final EventBus eventBus;
 
-    public ViewUpdater(ViewsRepository viewsRepository) {
+    public ViewUpdater(ViewsRepository viewsRepository, EventBus eventBus) {
         super();
         this.viewsRepository = viewsRepository;
+        this.eventBus = eventBus;
 
         super
                 .listen((PostCreated event) -> {
