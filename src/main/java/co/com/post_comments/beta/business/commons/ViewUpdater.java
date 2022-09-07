@@ -28,7 +28,7 @@ public class ViewUpdater extends DomainUpdater {
                             event.author(),
                             event.title(),
                             event.content(),
-                            LocalDateTime.parse(event.postedAt()),
+                            event.postedAt(),
                             new HashSet<>()
                     );
                     this.eventBus
@@ -44,7 +44,7 @@ public class ViewUpdater extends DomainUpdater {
                             event.postId(),
                             event.author(),
                             event.content(),
-                            LocalDateTime.parse(event.postedAt())
+                            event.postedAt()
                     );
                     this.eventBus
                             .publishCommentAddedEvent(comment);

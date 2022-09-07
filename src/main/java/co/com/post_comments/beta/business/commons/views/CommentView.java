@@ -3,8 +3,6 @@ package co.com.post_comments.beta.business.commons.views;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 
-import java.time.LocalDateTime;
-
 @Setter
 @Getter
 @ToString
@@ -16,5 +14,5 @@ public class CommentView {
     private String postId;
     private String author;
     private String content;
-    private LocalDateTime postedAt;
+    private String postedAt;
 }
