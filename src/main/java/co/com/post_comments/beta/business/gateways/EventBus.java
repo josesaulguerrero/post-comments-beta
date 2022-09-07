@@ -1,9 +1,8 @@
 package co.com.post_comments.beta.business.gateways;
 
-import co.com.post_comments.beta.domain.post.events.CommentAdded;
-import co.com.post_comments.beta.domain.post.events.PostCreated;
-
+import co.com.post_comments.beta.business.commons.views.CommentView;
+import co.com.post_comments.beta.business.commons.views.PostView;
 public interface EventBus {
-    void publishPostCreatedEvent(PostCreated event);
-    void publishCommentAddedEvent(CommentAdded event);
+    void publishPostCreatedEvent(PostView view);
+    void publishCommentAddedEvent(CommentView view);
 }

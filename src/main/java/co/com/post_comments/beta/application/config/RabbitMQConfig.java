@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @AllArgsConstructor
 public class RabbitMQConfig {
-    public static final String BETA_EXCHANGE = "posts-comments-beta";
+    public static final String EXCHANGE = "main.exchange";
     public static final String ALPHA_EVENTS_QUEUE = "events.main";
     public static final String PROXY_QUEUE_POST_CREATED = "events.proxy.post.created";
     public static final String PROXY_QUEUE_COMMENT_ADDED = "events.proxy.comment.added";
@@ -35,7 +35,7 @@ public class RabbitMQConfig {
 
     @Bean
     public TopicExchange getTopicExchange() {
-        return new TopicExchange(BETA_EXCHANGE);
+        return new TopicExchange(EXCHANGE);
     }
 
     @Bean

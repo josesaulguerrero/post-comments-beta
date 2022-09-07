@@ -31,10 +31,10 @@ public class ViewUpdater extends DomainUpdater {
                             LocalDateTime.parse(event.postedAt()),
                             new HashSet<>()
                     );
+                    this.eventBus
+                            .publishPostCreatedEvent(post);
                     this.viewsRepository.savePost(post)
                             .subscribe();
-                    this.eventBus
-                            .publishPostCreatedEvent(event);
                 });
 
         super
@@ -45,9 +45,10 @@ public class ViewUpdater extends DomainUpdater {
                             event.content(),
                             LocalDateTime.parse(event.postedAt())
                     );
+                    this.eventBus
+                            .publishCommentAddedEvent(comment);
                     this.viewsRepository.appendComment(event.postId(), comment)
                             .subscribe();
-                    this.eventBus.publishCommentAddedEvent(event);
                 });
     }
 }

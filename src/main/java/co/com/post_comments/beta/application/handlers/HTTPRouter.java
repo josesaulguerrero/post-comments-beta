@@ -6,12 +6,15 @@ import co.com.post_comments.beta.business.usecases.FindAllUseCase;
 import co.com.post_comments.beta.business.usecases.FindByPostIdUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.RequestPredicates;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
+
+import java.util.ArrayList;
 
 @Configuration
 public class HTTPRouter {
@@ -26,14 +29,14 @@ public class HTTPRouter {
                                 .body(
                                         BodyInserters.fromPublisher(
                                                 useCase.apply(),
-                                                PostView.class
+                                                ParameterizedTypeReference.forType(ArrayList.class)
                                         )
                                 )
         );
     }
 
     @Bean
-    public RouterFunction<ServerResponse> getAllPosts(FindByPostIdUseCase useCase) {
+    public RouterFunction<ServerResponse> getPostById(FindByPostIdUseCase useCase) {
         return RouterFunctions.route(
                 RequestPredicates.GET("/api/v1/posts/{postId}"),
                 request ->
