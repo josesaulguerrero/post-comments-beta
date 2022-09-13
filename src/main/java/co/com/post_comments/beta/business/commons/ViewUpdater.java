@@ -8,7 +8,6 @@ import co.com.post_comments.beta.domain.post.events.CommentAdded;
 import co.com.post_comments.beta.domain.post.events.PostCreated;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.HashSet;
 
 @Service
