@@ -6,10 +6,12 @@ import co.com.post_comments.beta.business.gateways.EventBus;
 import co.com.post_comments.beta.business.gateways.ViewsRepository;
 import co.com.post_comments.beta.domain.post.events.CommentAdded;
 import co.com.post_comments.beta.domain.post.events.PostCreated;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 
+@Slf4j
 @Service
 public class ViewUpdater extends DomainUpdater {
     private final ViewsRepository viewsRepository;
@@ -22,6 +24,7 @@ public class ViewUpdater extends DomainUpdater {
 
         super
                 .listen((PostCreated event) -> {
+                    log.info("ViewUpdater received a PostCreated event with the following information: " + event);
                     PostView post = new PostView(
                             event.postId(),
                             event.author(),
@@ -38,6 +41,7 @@ public class ViewUpdater extends DomainUpdater {
 
         super
                 .listen((CommentAdded event) -> {
+                    log.info("ViewUpdater received a CommentAdded event with the following information: " + event);
                     CommentView comment = new CommentView(
                             event.commentId(),
                             event.postId(),

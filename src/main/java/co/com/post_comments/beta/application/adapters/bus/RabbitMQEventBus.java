@@ -8,9 +8,11 @@ import co.com.post_comments.beta.business.gateways.EventBus;
 import co.com.post_comments.beta.application.commons.json.JSONMapper;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 @AllArgsConstructor
 public class RabbitMQEventBus implements EventBus {
@@ -27,6 +29,7 @@ public class RabbitMQEventBus implements EventBus {
 
     @Override
     public void publishPostCreatedEvent(PostView view) {
+        log.info("Publishing a PostView to RabbitMQ.");
         this.publishMQMessage(
                 jsonMapper.writeToJson(view),
                 RabbitMQConfig.PROXY_ROUTING_KEY_POST_CREATED
@@ -35,6 +38,7 @@ public class RabbitMQEventBus implements EventBus {
 
     @Override
     public void publishCommentAddedEvent(CommentView view) {
+        log.info("Publishing a CommentView to RabbitMQ.");
         this.publishMQMessage(
                 jsonMapper.writeToJson(view),
                 RabbitMQConfig.PROXY_ROUTING_KEY_COMMENT_ADDED

@@ -17,11 +17,12 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 
 import java.util.ArrayList;
 
-@Configuration
 @Slf4j
+@Configuration
 public class HTTPRouter {
     @Bean
     public RouterFunction<ServerResponse> getAllPosts(FindAllUseCase useCase) {
+        log.info("Received a GET request at /api/v1/posts/all");
         return RouterFunctions.route(
                 RequestPredicates.GET("/api/v1/posts/all"),
                 request ->
@@ -39,6 +40,7 @@ public class HTTPRouter {
 
     @Bean
     public RouterFunction<ServerResponse> getPostById(FindByPostIdUseCase useCase) {
+        log.info("Received a GET request at /api/v1/posts/{id}");
         return RouterFunctions.route(
                 RequestPredicates.GET("/api/v1/posts/{postId}"),
                 request ->
