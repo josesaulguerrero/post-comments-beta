@@ -3,6 +3,7 @@ package co.com.post_comments.beta.application.config;
 
 import co.com.post_comments.beta.application.handlers.QueueHandler;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
@@ -11,6 +12,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+@Slf4j
 @Configuration
 @AllArgsConstructor
 public class RabbitMQConfig {
@@ -56,6 +58,7 @@ public class RabbitMQConfig {
 
     @RabbitListener(queues = ALPHA_EVENTS_QUEUE)
     public void listenToGeneralQueue(String received){
+        log.info("Received an event with the following information: " + received + " from the ALPHA event queue.");
         this.handler.accept(received);
     }
 }
